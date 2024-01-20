@@ -13,13 +13,13 @@ const ChatbotApp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    const result = await openai.chat.completions.create({
+    const answer = await openai.chat.completions.create({
         messages: [{ role: "user", content: prompt }],
         model: "gpt-3.5-turbo",
     });
-    console.log(result);
+    console.log(answer);
     
-    setApiResponse(result.choices[0].message.content);
+    setApiResponse(answer.choices[0].message.content);
     
     setLoading(false);
   };
