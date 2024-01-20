@@ -1,5 +1,5 @@
 body {
-  background-color: #ffb6c1;
+  background-color: #f6c2ca;
 }
 
 @keyframes App-logo-spin {
@@ -10,14 +10,39 @@ body {
     transform: rotate(360deg);
   }
 }
+
 .explore {
-  background-color: #ffb6c1;
-  height: 1000px;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to right, #ffcccc, #ccffcc, #ccccff);
 }
+
+h1 {
+  color: #3498db;
+}
+
 .input-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 200px;
-  width: 300px;
+  margin-top: 100px;
 }
+
+.input-box {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #3498db;
+  border-radius: 5px;
+}
+
+.generate-button {
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.generate-button:hover {
+  background-color: #2980b9;
+}
+
