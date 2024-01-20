@@ -23,27 +23,27 @@ function App() {
   };
   return (
     <div className="explore">
-      <h1>ExploreEase</h1>
-      <div className="input-container">
-        <input
-          type="text"
-          value={textInput}
-          onChange={handleTextInputChange}
-          className="input-box"
-          placeholder="Enter text"
-        />
-        <input
-          type="number"
-          value={numberInput}
-          onChange={handleNumberInputChange}
-          className="input-box"
-          placeholder="Enter number"
-        />
-        <button className="generate-button" onClick={handleGenerateClick}>
-          Generate
-        </button>
-      </div>
+    <h1>ExploreEase</h1>
+    <div className="input-container">
+      <input
+        type="text"
+        value={textInput}
+        onChange={handleTextInputChange}
+        className="input-box"
+        placeholder="Enter text"
+      />
+      <input
+        type="number"
+        value={numberInput}
+        onChange={handleNumberInputChange}
+        className="input-box"
+        placeholder="Enter number"
+      />
+      <button className="generate-button" onClick={handleGenerateClick}>
+        Generate
+      </button>
     </div>
+  </div>
   );
 }
 
