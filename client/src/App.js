@@ -21,6 +21,17 @@ function App() {
     setTextInput("");
     setNumberInput(0);
   };
+
+  const OpenAI = require("openai");
+  require("dotenv").config();
+
+  const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+
+  
+
+
   return (
     <div className="explore">
       <h1>ExploreEase</h1>
