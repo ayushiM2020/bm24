@@ -22,7 +22,7 @@ function App() {
     setNumberInput(0);
   };
   return (
-    <div className="ExploreEase">
+    <div className="explore">
       <h1>ExploreEase</h1>
       <div className="input-container">
         <input
