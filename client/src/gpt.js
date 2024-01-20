@@ -1,12 +1,11 @@
 import { useState } from "react"
-const { Configuration, OpenAIApi } = require("openai");
+const { Configuration, OpenAI } = require("openai");
 
 const ChatbotApp = () => {
-  const configuration = new Configuration({
-    apiKey: "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",
-  });
 
-  const openai = new OpenAIApi(configuration);
+  const openai = new OpenAI({
+    apiKey: process.env.REACT_APP_OPENAI_API_KEY, dangerouslyAllowBrowser: true
+  });
   const [prompt, setPrompt] = useState("");
   const [apiResponse, setApiResponse] = useState("");
   const [loading, setLoading] = useState(false);
@@ -14,19 +13,14 @@ const ChatbotApp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    try {
-      const result = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: prompt,
-        temperature: 0.5,
-        max_tokens: 4000,
-      });
-      //console.log("response", result.data.choices[0].text);
-      setApiResponse(result.data.choices[0].text);
-    } catch (e) {
-      //console.log(e);
-      setApiResponse("Something is going wrong, Please try again.");
-    }
+    const result = await openai.chat.completions.create({
+        messages: [{ role: "user", content: prompt }],
+        model: "gpt-3.5-turbo",
+    });
+    console.log(result);
+    
+    setApiResponse(result.choices[0].message.content);
+    
     setLoading(false);
   };
 
