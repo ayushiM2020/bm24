@@ -15,6 +15,7 @@ body {
   text-align: center;
   padding: 20px;
   background: linear-gradient(to right, #ffcccc, #ccffcc, #ccccff);
+  height: 900px;
 }
 
 h1 {
@@ -45,4 +46,3 @@ h1 {
 .generate-button:hover {
   background-color: #2980b9;
 }
-
