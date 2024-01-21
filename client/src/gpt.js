@@ -10,11 +10,19 @@ const ChatbotApp = () => {
   const [apiResponse, setApiResponse] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const bulletPoints = apiResponse.split(/\d+\.\s+/);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     const result = await openai.chat.completions.create({
-      messages: [{ role: "user", content: prompt }],
+      messages: [
+        {
+          role: "user",
+          content:
+            "Things to do in " + prompt + "in " + numberInput + " hours.",
+        },
+      ],
       model: "gpt-3.5-turbo",
     });
     console.log(result);
@@ -43,19 +51,25 @@ const ChatbotApp = () => {
       <div className="explore">
         <h1>ExploreEase</h1>
         <div className="input-container">
+          <label for="username">Enter City:</label>
+
           <input
             type="text"
             value={prompt}
             onChange={handleTextInputChange}
             className="input-box"
-            placeholder="Enter prompt"
+            placeholder="City, State"
           />
+          <label for="username">Enter Time(hrs):</label>
+
           <input
             type="number"
             value={numberInput}
-            onChange={(e) => setPrompt(e.target.value)}
+            onChange={handleNumberInputChange}
             className="input-box"
             placeholder="Enter number"
+            min="0"
+            max="24"
           />
           <button
             disabled={loading || prompt.length === 0}
@@ -65,16 +79,10 @@ const ChatbotApp = () => {
             {loading ? "Generating..." : "Generate"}
           </button>
           {apiResponse && (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <pre>
-                <strong>API response:</strong>
-                {apiResponse}
-              </pre>
+            <div className="response">
+              {bulletPoints.map((point, index) => (
+                <p key={index}>{point}</p>
+              ))}
             </div>
           )}
         </div>

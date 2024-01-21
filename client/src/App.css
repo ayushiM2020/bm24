@@ -18,6 +18,18 @@ body {
   height: 900px;
 }
 
+.response {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: justify;
+  height: 500px;
+  padding: 200px;
+  background-color: aliceblue;
+  /* word-wrap: break-word; Or use overflow-wrap: break-word */
+  overflow-y: auto; /* Enable vertical scroll if needed */
+}
+
 h1 {
   color: #3498db;
 }
